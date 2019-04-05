@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JS</title>
+
+  </head>
+  <body>
+    <p >猜一猜一個整數</p>
+    <input id="myInput" type="text" />
+
+    <button id="myButton">提交</button>
+
+    <script type="text/javascript">
+      document.getElementById('myButton').onclick = function(){
+        var gotIt = false;
+        var x;
+        var guesses = 1;
+        console.log(document.getElementById('myInput').value);
+
+
+        while (gotIt == false) {
+           x = Math.random(); //1> x >=0
+           x = x * 4;           //4> x*4 >=0
+           x = Math.floor(x);   //高斯地板函數   x屬於0~3之間的整數 [0,1,2,3]
+
+           if(x == document.getElementById('myInput').value){
+             gotIt = true;
+           }else{
+             guesses++;
+           }
+        }
+
+
+        alert("恭喜,google用了"+ guesses +"次猜對了您的數字:"+ x);
+
+      }
+    </script>
+
+
+  </body>
+</html>
